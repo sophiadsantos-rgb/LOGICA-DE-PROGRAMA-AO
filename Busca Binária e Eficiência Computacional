@@ -1,0 +1,40 @@
+
+# Lista de números
+lista = [2, 5, 8, 12, 16, 23, 38, 45, 56, 67, 72, 81, 89, 94, 99]
+
+# Pede um número para o usuário
+numero = int(input("Digite um número para procurar: "))
+
+inicio = 0
+fim = 14
+comparacoes = 0
+
+# Faz a busca enquanto ainda tiver números para verificar
+while inicio <= fim:
+
+    # Calcula o meio da lista
+    meio = (inicio + fim) // 2
+
+    # Conta as comparações
+    comparacoes = comparacoes + 1
+
+    # Verifica se encontrou o número
+    if lista[meio] == numero:
+        print("Número encontrado!")
+        print("Índice:", meio)
+        break
+
+    # Se o número for maior, procura do lado direito
+    elif numero > lista[meio]:
+        inicio = meio + 1
+
+    # Se for menor, procura do lado esquerdo
+    else:
+        fim = meio - 1
+
+# Se não encontrou
+else:
+    print("Número não encontrado.")
+
+# Mostra quantas comparações foram feitas
+print("Total de comparações:", comparacoes)
